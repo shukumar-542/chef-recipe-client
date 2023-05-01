@@ -4,13 +4,14 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+
 const firebaseConfig = {
-  apiKey: "AIzaSyCcWS9HnusG44oic-qOKUkMAO41RG4UU4w",
-  authDomain: "food-mart-auth.firebaseapp.com",
-  projectId: "food-mart-auth",
-  storageBucket: "food-mart-auth.appspot.com",
-  messagingSenderId: "287912821198",
-  appId: "1:287912821198:web:1cc5bbd5ff012286c3eb9f"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId
 };
 
 // Initialize Firebase
