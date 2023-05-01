@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.my-container{
+    @apply px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl  lg:py-5
+  }
+.active{
+    @apply font-medium tracking-wide text-violet-800 transition-colors duration-200
+  }
+  
+  .default{
+    @apply font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-violet-600
+  }
+
+  .btn-primary{
+    @apply rounded-md text-white py-2 px-4  bg-gradient-to-r from-violet-400 to-violet-800
+  }
