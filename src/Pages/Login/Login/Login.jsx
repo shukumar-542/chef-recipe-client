@@ -4,7 +4,7 @@ import { AuthContext } from '../../../Providers/AuthProvider';
 
 const Login = () => {
 
-    const {createUserWithGoogle} = useContext(AuthContext);
+    const {createUserWithGoogle,createUserWithGithub,loggedInUser} = useContext(AuthContext);
     const [error , setError] = useState('')
 
     const handleLogin = (event) =>{
@@ -13,7 +13,19 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        console.log(email,password);
+        loggedInUser(email, password)
+        .then(result => {
+            const user = result.user;  
+            // setSuccess('user Logged in successfully')
+            console.log(user);
+        })
+        .catch(error => {
+            const errorMessage = error.message;
+            console.log(errorMessage);
+            setError(errorMessage)
+        })
+
+        // console.log(email,password);
 
     }
 
@@ -30,6 +42,21 @@ const Login = () => {
             setError(errorMessage)
         })
     }
+
+    // handle github login
+    const handelGithubLogin =()=>{
+        createUserWithGithub()
+        .then(result =>{
+            const user = result.user;
+            console.log(user);
+        })
+        .catch(error =>{
+            const errorMessage = error.message;
+            console.log(errorMessage);
+            setError(errorMessage)
+        })
+
+    }
     return (
         <div className=' mt-4 border w-1/2 mx-auto py-4 rounded-md'>
             <form onSubmit={handleLogin} className='flex justify-center items-center flex-col space-y-2'>
@@ -44,7 +71,7 @@ const Login = () => {
             </form>
             <div className='flex flex-col space-y-2 mx-10 mt-10'>
             <button onClick={handleGoogleLogin} className='border border-violet-800 px-8 py-2 rounded-lg hover:bg-violet-600 '>Login With Google</button>
-            <button className='border border-violet-800 px-8 py-2 rounded-lg hover:bg-violet-600 '>Login With Github</button>
+            <button onClick={handelGithubLogin} className='border border-violet-800 px-8 py-2 rounded-lg hover:bg-violet-600 '>Login With Github</button>
 
             </div>
         </div>

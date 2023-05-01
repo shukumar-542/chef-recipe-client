@@ -45,7 +45,7 @@ const Header = () => {
                         </li>
                         {
                             user &&
-                            <div className="w-10 rounded-full">
+                            <div className="w-10 rounded-full tooltip tooltip-bottom"  data-tip={user.displayName}>
                                 <img src={user.photoURL} className='rounded-full' alt="" />
                             </div>
                         }
