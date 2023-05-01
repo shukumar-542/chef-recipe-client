@@ -1,9 +1,22 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { Bars4Icon, XMarkIcon } from '@heroicons/react/24/solid'
+import { AuthContext } from '../../../Providers/AuthProvider';
 
 const Header = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const { user,logOut } = useContext(AuthContext)
+    // console.log(user?.photoURL);
+
+    const handleLogOUt =()=>{
+        logOut()
+        .then(()=>{
+            console.log('logOut Successfully');
+        })
+        .catch((error) => {
+            console.log(error);
+          });
+    }
     return (
         <div className='bg-gray-100'>
             <div className=' py-5 mx-auto sm:max-w-full md:max-w-full lg:max-w-screen-xl lg:px-8 '>
@@ -30,13 +43,19 @@ const Header = () => {
                                 Blog
                             </NavLink>
                         </li>
-
-                        <div className="w-10 rounded-full">
-                            <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                        </div>
-                        <div className='hidden lg:block'>
-                    <button className='btn-primary'>Login</button>
-                </div>
+                        {
+                            user &&
+                            <div className="w-10 rounded-full">
+                                <img src={user.photoURL} className='rounded-full' alt="" />
+                            </div>
+                        }
+                       {
+                        user ?  <Link to='/login' className='hidden lg:block'>
+                        <button className='btn-primary' onClick={handleLogOUt}>logOut</button>
+                    </Link> :  <Link to='/login' className='hidden lg:block'>
+                            <button className='btn-primary'>Login</button>
+                        </Link>
+                       }
 
                     </ul>
 
@@ -89,13 +108,18 @@ const Header = () => {
                                                         title='Statistics'
                                                         className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
                                                     >
-                                                       Blog
+                                                        Blog
                                                     </Link>
                                                 </li>
-                                               
-                                                <li>
-                                                    <button className='btn-primary '>Login</button>
-                                                </li>
+
+                                                {
+                                                    user ? <li>
+                                                        <button className='btn-primary '>LogOut</button>
+                                                    </li> : 
+                                                    <li>
+                                                        <button className='btn-primary '>LogOut</button>
+                                                    </li>
+                                                }
 
                                             </ul>
                                         </nav>
