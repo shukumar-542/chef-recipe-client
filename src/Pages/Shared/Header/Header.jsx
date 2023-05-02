@@ -52,9 +52,9 @@ const Header = () => {
                             </div>
                         }
                        {
-                        user ?  <Link to='/login' className='hidden lg:block'>
+                        user ?  
                         <button className='btn-primary' onClick={handleLogOUt}>logOut</button>
-                    </Link> :  <Link to='/login' className='hidden lg:block'>
+                     :  <Link to='/login' className='hidden lg:block'>
                             <button className='btn  '>Login</button>
                         </Link>
                        }

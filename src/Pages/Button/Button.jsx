@@ -11,7 +11,7 @@ const Button = () => {
     }
     return (
         <div>
-          <button disabled={accepted} onClick={handleFavoriteDish} className="btn btn-primary ">Favorite </button>
+          <button disabled={accepted} onClick={handleFavoriteDish} className="btn btn-primary border-none ">Favorite </button>
           <ToastContainer />
         </div>
     );

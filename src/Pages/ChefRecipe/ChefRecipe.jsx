@@ -29,12 +29,12 @@ const ChefRecipe = () => {
             <div className=''>
                 {
                     chefRecipes?.map(recipe => (
-                        <div key={recipe.id} className='flex flex-col px-10  lg:flex-row my-container lg:justify-between space-y-5 items-center mb-10 '>
+                        <div key={recipe.id} className='flex flex-col px-10 gap-5 lg:flex-row my-container lg:justify-between space-y-5 items-center mb-10 '>
                             <div className='space-y-4 text-center lg:text-left'>
-                                <h2>{recipe?.name}</h2>
-                                <p> {recipe?.description}</p>
+                                <h2 className='text-3xl font-bold text-orange-500'>Name : {recipe?.name}</h2>
+                                <p className='text-orange-500'> {recipe?.description}</p>
+                                <p>Experience : {recipe?.years_of_experience} Year</p>
                                 <p>Likes : {recipe?.likes}</p>
-                                <p>Experience : {recipe?.years_of_experience}</p>
 
                             </div>
                             <div className='w-4/5'>
@@ -50,20 +50,23 @@ const ChefRecipe = () => {
 
                 {
                     chefRecipes?.map(recipe => {
-                        return <div key={recipe.id} className='grid grid-cols-3 gap-4  my-container lg:justify-between space-y-5 items-center mb-10 '>
+                        return <div key={recipe.id} className='grid grid-cols-3 gap-4  my-container lg:justify-between  items-center mb-10 '>
                             {
-                                recipe?.recipes?.map((rece, index) => {
-                                    return <div className="card w-96 bg-base-100 shadow-xl " key={index}>
+                                recipe?.recipes?.map((cock, index) => {
+                                    return <div className="card w-96 h-full bg-base-100 shadow-xl " key={index}>
 
                                       
                                             <div className="card-body">
-                                                <h2 className="card-title">{rece.name}</h2>
-                                                <p>{rece.cooking_method}</p>
-                                                <p>1. {rece.ingredients[0]}</p>
-                                                <p>2. {rece.ingredients[1]}</p>
-                                                <p>3. {rece.ingredients[2]}</p>
-                                                <p>4. {rece.ingredients[3]}</p>
-                                                <p>5. {rece.ingredients[4]}</p>
+                                                <h2 className="card-title text-2xl text-orange-500 my-4">{cock.name}</h2>
+                                                <h2 className='text-xl font-bold'>Ingredient</h2>
+                                                <p>1. {cock.ingredients[0]}</p>
+                                                <p>2. {cock.ingredients[1]}</p>
+                                                <p>3. {cock.ingredients[2]}</p>
+                                                <p>4. {cock.ingredients[3]}</p>
+                                                <p>5. {cock.ingredients[4]}</p>
+                                                <h2 className='text-xl font-bold'>cooking method</h2>
+                                                <p>{cock.cooking_method}</p>
+
                                                 <div className="card-actions justify-end">
                                                     <Button></Button>
                                                 </div>
