@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useLoaderData, useNavigation, useParams } from 'react-router-dom';
 import Button from '../Button/Button';
 import Loading from '../Loading/Loading';
+import { Rating } from '@smastrom/react-rating'
+import '@smastrom/react-rating/style.css'
 
 const ChefRecipe = () => {
     const { id } = useParams()
@@ -66,6 +68,8 @@ const ChefRecipe = () => {
                                                 <p>5. {cock.ingredients[4]}</p>
                                                 <h2 className='text-xl font-bold'>cooking method</h2>
                                                 <p>{cock.cooking_method}</p>
+                                                <p className='flex'>Rating : 
+                                                <Rating style={{ maxWidth: 100 }} value={cock.rating} readOnly  /></p>
 
                                                 <div className="card-actions justify-end">
                                                     <Button></Button>

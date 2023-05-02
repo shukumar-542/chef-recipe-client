@@ -55,24 +55,27 @@ const Register = () => {
     }
 
     return (
-        <div className=' mt-4 border w-1/2 mx-auto py-4 rounded-md'>
+        <div className=' mt-10 shadow-lg border w-1/2 mx-auto py-12 rounded-md bg-gray-100 '>
+            <h1 className='text-center my-4 text-3xl text-orange-500 font-bold'>Register</h1>
         <form onSubmit={handleRegister} className='flex justify-center items-center flex-col space-y-2'>
-            <div className="form-control ">   
+            <div className="form-control w-1/2">   
              <input type="text" name='name' placeholder="Enter Name" className="input input-bordered " />   
             </div>
             
-            <div className="form-control ">   
+            <div className="form-control w-1/2">   
              <input type="email" name='email' placeholder="Enter Email" className="input input-bordered "  />   
             </div>
-            <div className="form-control ">   
+            <div className="form-control w-1/2">   
              <input type="password" name='password' placeholder="Enter Password" className="input input-bordered w-full" />   
             </div>
-            <div className="form-control ">   
+            <div className="form-control w-1/2">   
              <input type="text" name='photo' placeholder="Enter photo url" className="input input-bordered " />   
             </div>
-            <button className='btn-primary' type='submit'>Register</button>
-            <p>Have an Account? <Link to="/login" className='text-violet-800 underline'>Login</Link></p>
+            <button className='btn-primary w-1/2' type='submit'>Register</button>
+            <p>Have an Account? <Link to="/login" className='text-orange-500 underline'>Login</Link></p>
         </form>
+
+
 
         
     </div>
