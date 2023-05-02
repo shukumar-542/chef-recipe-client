@@ -5,6 +5,7 @@ import Home from '../Pages/Home/Home';
 import Blog from '../Pages/Blog/Blog';
 import Login from '../Pages/Login/Login/Login';
 import Register from '../Pages/Login/Register/Register';
+import ChefRecipe from '../Pages/ChefRecipe/ChefRecipe';
 
 const route = createBrowserRouter([
     {
@@ -26,9 +27,21 @@ const route = createBrowserRouter([
             {
                 path : 'register',
                 element : <Register></Register>
+            },
+            
+        ]
+        
+
+    },
+    {
+        path : 'recipe',
+        element : <Main></Main>,
+        children :[
+            {
+                path : ':id',
+                element : <ChefRecipe></ChefRecipe>
             }
         ]
-
     }
 ])
 
