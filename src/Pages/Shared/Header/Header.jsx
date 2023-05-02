@@ -20,10 +20,10 @@ const Header = () => {
 
     // console.log(user?.photoURL);
     return (
-        <div className='bg-violet-400'>
+        <div className='bg-orange-500'>
             <div className=' py-5 mx-auto sm:max-w-full md:max-w-full lg:max-w-screen-xl lg:px-8 '>
                 <div className='relative flex items-center justify-between'>
-                    <div className='font-bold text-3xl text-violet-800'>Food Mart</div>
+                    <div className='font-bold text-3xl text-white'>Food Mart</div>
                     <ul className='items-center hidden space-x-8 lg:flex'>
                         <li>
                             <NavLink
@@ -55,7 +55,7 @@ const Header = () => {
                         user ?  <Link to='/login' className='hidden lg:block'>
                         <button className='btn-primary' onClick={handleLogOUt}>logOut</button>
                     </Link> :  <Link to='/login' className='hidden lg:block'>
-                            <button className='btn-primary'>Login</button>
+                            <button className='btn  '>Login</button>
                         </Link>
                        }
 
@@ -77,7 +77,7 @@ const Header = () => {
                                     <div className='p-5 bg-white border rounded shadow-sm'>
                                         <div className='flex items-center justify-between mb-4'>
                                             <div>
-                                                <h1 className='font-bold text-2xl text-violet-800'>Food Mart</h1>
+                                                <h1 className='font-bold text-2xl text-orange-500'>Food Mart</h1>
                                             </div>
                                             <div>
                                                 <button
@@ -119,7 +119,7 @@ const Header = () => {
                                                         <button className='btn-primary '>LogOut</button>
                                                     </li> : 
                                                     <li>
-                                                        <button className='btn-primary '>LogOut</button>
+                                                        <button className='btn-primary '>Login</button>
                                                     </li>
                                                 }
 
