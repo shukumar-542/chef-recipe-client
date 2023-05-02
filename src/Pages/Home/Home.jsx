@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import img from '../../assets/header1.jpg'
 import { Link, useNavigation } from 'react-router-dom';
 import Loading from '../Loading/Loading';
+import { LazyLoadImage } from "react-lazy-load-image-component"
 
 const Home = () => {
 
@@ -29,7 +30,7 @@ const Home = () => {
                         
                     </div>
                     <div className='w-4/5'>
-                        <img src={img} className='rounded-lg' alt="" />
+                        <LazyLoadImage src={img} className='rounded-lg' alt="" />
                     </div>
                 </div>
             </div>
@@ -37,7 +38,7 @@ const Home = () => {
 
                 {
                     chefs?.map(chef=>(<div key={chef?.id} className="card w-96 bg-base-100 shadow-xl ">
-                    <figure><img src={chef.picture} alt="Shoes" /></figure>
+                    <figure><LazyLoadImage src={chef.picture}  width={600} height={400} alt="img" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">{chef?.name}</h2>
                         <p>Year Of experience  : {chef?.years_of_experience}</p>

@@ -17,8 +17,10 @@ const Header = () => {
             console.log(error);
           });
     }
+
+    // console.log(user?.photoURL);
     return (
-        <div className='bg-white'>
+        <div className='bg-violet-400'>
             <div className=' py-5 mx-auto sm:max-w-full md:max-w-full lg:max-w-screen-xl lg:px-8 '>
                 <div className='relative flex items-center justify-between'>
                     <div className='font-bold text-3xl text-violet-800'>Food Mart</div>
