@@ -3,6 +3,7 @@ import img from '../../assets/header1.jpg'
 import { Link, useNavigation } from 'react-router-dom';
 import Loading from '../Loading/Loading';
 import { LazyLoadImage } from "react-lazy-load-image-component"
+import ContactUs from '../ContactUs/ContactUs';
 
 const Home = () => {
 
@@ -34,10 +35,10 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-4  my-container lg:justify-between space-y-5 items-center mb-10 '>
+            <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-4  my-container lg:justify-between items-center mb-10 '>
 
                 {
-                    chefs?.map(chef=>(<div key={chef?.id} className="card w-96 bg-base-100 shadow-xl ">
+                    chefs?.map(chef=>(<div key={chef?.id} className="card w-96 bg-base-100 shadow-xl mb-4 ">
                     <figure><LazyLoadImage src={chef.picture}  width={600} height={400} alt="img" /></figure>
                     <div className="card-body">
                         <h2 className="card-title text-orange-500 font-bold text-2xl">{chef?.name}</h2>
@@ -58,6 +59,7 @@ const Home = () => {
                 
 
             </div>
+            <ContactUs></ContactUs>
         </div>
     );
 };

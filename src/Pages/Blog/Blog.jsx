@@ -1,9 +1,26 @@
 import React from 'react';
+import Pdf from "react-to-pdf";
+import { BeakerIcon, ArrowDownTrayIcon } from '@heroicons/react/24/solid'
+const ref = React.createRef();
+
 
 const Blog = () => {
+    const options = {
+        orientation: 'landscape',
+        unit: 'in',
+    };
     return (
+
         <div className='mt-8 w-[90%] mx-auto'>
-            <div className='my-5'>
+            
+
+            <div className='flex justify-center items-center gap-5'>
+                <h1>Click Here for download</h1>
+                <Pdf  targetRef={ref} filename="blog.pdf" options={options} x={.5} y={.5} scale={0.8} >
+                    {({ toPdf }) => <ArrowDownTrayIcon className='h-6 w-6 hover:cursor-pointer hover:text-orange-500' onClick={toPdf}></ArrowDownTrayIcon>}
+                </Pdf>
+            </div>
+            <div className='my-5 py-10' ref={ref}>
                 <h1 className='text-2xl'>Q1. Differences between uncontrolled and controlled components?</h1>
                 <div className=' my-5 bg-slate-100 p-5 rounded text-xl space-y-5'>
                     <p>
@@ -24,9 +41,9 @@ const Blog = () => {
                     <p>
                         <span className='font-bold'>validate React props : </span>
                         props is a mechanism that passing read only data form parent component to
-                         child component. if we don't use the props data correctly then component not 
-                         behave that we want. to more improving  our component then we need to use props validation.
-                         React components used special property PropTypes that help you to catch bugs.
+                        child component. if we don't use the props data correctly then component not
+                        behave that we want. to more improving  our component then we need to use props validation.
+                        React components used special property PropTypes that help you to catch bugs.
 
                     </p>
                 </div>
@@ -42,7 +59,7 @@ const Blog = () => {
                         <p className='font-bold'>express js: </p>
 
                         Express.js is a popular open-source web application framework for Node.js.Express.js is a powerful and versatile web application framework for Node.js
-                        
+
                     </p>
                 </div>
 
