@@ -1,11 +1,15 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProvider';
 
 const Login = () => {
 
     const {createUserWithGoogle,createUserWithGithub,loggedInUser} = useContext(AuthContext);
     const [error , setError] = useState('')
+
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+    const navigate = useNavigate()
 
     const handleLogin = (event) =>{
         event.preventDefault();
@@ -23,7 +27,8 @@ const Login = () => {
 
         loggedInUser(email, password)
         .then(result => {
-            const user = result.user;  
+            const user = result.user; 
+            navigate(from) 
             // setSuccess('user Logged in successfully')
             console.log(user);
         })
@@ -42,6 +47,7 @@ const Login = () => {
         createUserWithGoogle()
         .then(result =>{
             const user = result.user;
+            navigate(from)
             console.log(user);
         })
         .catch(error =>{
@@ -56,6 +62,7 @@ const Login = () => {
         createUserWithGithub()
         .then(result =>{
             const user = result.user;
+            navigate(from)
             console.log(user);
         })
         .catch(error =>{
