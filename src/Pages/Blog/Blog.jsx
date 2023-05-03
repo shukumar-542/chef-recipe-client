@@ -56,7 +56,7 @@ const Blog = () => {
                         Node.js is an open-source, cross-platform JavaScript runtime environment.It uses the V8
                         JavaScript engine, which is also used by the Google Chrome browser, to execute JavaScript code on the server-side.
 
-                        <p className='font-bold'>express js: </p>
+                        <span className='font-bold'>express js: </span>
 
                         Express.js is a popular open-source web application framework for Node.js.Express.js is a powerful and versatile web application framework for Node.js
 

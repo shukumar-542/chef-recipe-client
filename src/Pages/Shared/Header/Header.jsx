@@ -55,7 +55,7 @@ const Header = () => {
                         user ?  
                         <button className='btn-primary' onClick={handleLogOUt}>logOut</button>
                      :  <Link to='/login' className='hidden lg:block'>
-                            <button className='btn  '>Login</button>
+                            <button className='btn btn-primary border-none '>Login</button>
                         </Link>
                        }
 
@@ -94,24 +94,24 @@ const Header = () => {
                                         <nav>
                                             <ul className='space-y-4'>
                                                 <li>
-                                                    <Link
+                                                    <NavLink
                                                         to='/'
                                                         aria-label='Home'
                                                         title='Home'
-                                                        className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                                                        className={({ isActive }) => (isActive ? 'text-orange-500' : 'default')}
                                                     >
                                                         Home
-                                                    </Link>
+                                                    </NavLink>
                                                 </li>
                                                 <li>
-                                                    <Link
+                                                    <NavLink
                                                         to='/blog'
-                                                        aria-label='Statistics'
-                                                        title='Statistics'
-                                                        className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                                                        aria-label='blog'
+                                                        title='blog'
+                                                        className={({ isActive }) => (isActive ? 'text-orange-500' : 'default')}
                                                     >
                                                         Blog
-                                                    </Link>
+                                                    </NavLink>
                                                 </li>
 
                                                 {

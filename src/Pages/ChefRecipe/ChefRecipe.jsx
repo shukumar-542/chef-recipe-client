@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLoaderData, useNavigation, useParams } from 'react-router-dom';
+import {useParams } from 'react-router-dom';
 import Button from '../Button/Button';
 import Loading from '../Loading/Loading';
 import { Rating } from '@smastrom/react-rating'
@@ -7,16 +7,13 @@ import '@smastrom/react-rating/style.css'
 
 const ChefRecipe = () => {
     const { id } = useParams()
-    // const chefRecipes = useLoaderData();
+
     const[chefRecipes, setChefRecipes] = useState([])
     const [spinner, setSpinner] = useState(true)
-    // const navigation = useNavigation()
-    // if(navigation.state === 'loading'){
-    //     console.log('inside loading');
-    // }
+    
 
     useEffect(()=>{
-        fetch(`http://localhost:3000/recipe/${id}`)
+        fetch(`https://food-mart-server-shukumar-542.vercel.app/recipe/${id}`)
         .then(res => res.json())
         .then(data => setChefRecipes(data))
         setSpinner(false)
@@ -71,9 +68,9 @@ const ChefRecipe = () => {
                                                 <p className='flex'>Rating : 
                                                 <Rating style={{ maxWidth: 100 }} value={cock.rating} readOnly  /></p>
 
-                                                <div className="card-actions justify-end">
+                                                <span className="card-actions justify-end">
                                                     <Button></Button>
-                                                </div>
+                                                </span>
                                             </div>
                                       
                                     </div>
