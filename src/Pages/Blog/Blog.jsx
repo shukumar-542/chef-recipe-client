@@ -1,6 +1,6 @@
 import React from 'react';
 import Pdf from "react-to-pdf";
-import { BeakerIcon, ArrowDownTrayIcon } from '@heroicons/react/24/solid'
+import {  ArrowDownTrayIcon } from '@heroicons/react/24/solid'
 const ref = React.createRef();
 
 
@@ -15,7 +15,7 @@ const Blog = () => {
             
 
             <div className='flex justify-center items-center gap-5'>
-                <h1>Click Here for download</h1>
+                <h1 className='text-orange-500'>Click Here for download</h1>
                 <Pdf  targetRef={ref} filename="blog.pdf" options={options} x={.5} y={.5} scale={0.8} >
                     {({ toPdf }) => <ArrowDownTrayIcon className='h-6 w-6 hover:cursor-pointer hover:text-orange-500' onClick={toPdf}></ArrowDownTrayIcon>}
                 </Pdf>
