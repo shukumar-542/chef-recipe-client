@@ -5,17 +5,17 @@ import { AuthContext } from '../../../Providers/AuthProvider';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const { user,logOut } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
     // console.log(user?.photoURL);
 
-    const handleLogOUt =()=>{
+    const handleLogOUt = () => {
         logOut()
-        .then(()=>{
-            console.log('logOut Successfully');
-        })
-        .catch((error) => {
-            console.log(error);
-          });
+            .then(() => {
+                console.log('logOut Successfully');
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
 
     // console.log(user?.photoURL);
@@ -47,17 +47,17 @@ const Header = () => {
                         </li>
                         {
                             user &&
-                            <div className="w-10 rounded-full tooltip tooltip-bottom"  data-tip={user.displayName}>
+                            <div className="w-10 rounded-full tooltip tooltip-bottom" data-tip={user.displayName}>
                                 <img src={user.photoURL} className='rounded-full' alt="" />
                             </div>
                         }
-                       {
-                        user ?  
-                        <button className='btn-primary' onClick={handleLogOUt}>logOut</button>
-                     :  <Link to='/login' className='hidden lg:block'>
-                            <button className='btn btn-primary border-none '>Login</button>
-                        </Link>
-                       }
+                        {
+                            user ?
+                                <button className='btn bg-white text-orange-500 border-none' onClick={handleLogOUt}>logOut</button>
+                                : <Link to='/login' className='hidden lg:block'>
+                                    <button className='btn bg-white text-orange-500 border-none '>Login</button>
+                                </Link>
+                        }
 
                     </ul>
 
@@ -113,14 +113,22 @@ const Header = () => {
                                                         Blog
                                                     </NavLink>
                                                 </li>
+                                                {
+                                                    user &&
+                                                    <div className="w-10 rounded-full tooltip tooltip-bottom" data-tip={user.displayName}>
+                                                        <img src={user.photoURL} className='rounded-full' alt="" />
+                                                    </div>
+                                                }
 
                                                 {
                                                     user ? <li>
-                                                        <button className='btn-primary '>LogOut</button>
-                                                    </li> : 
-                                                    <li>
-                                                        <button className='btn-primary '>Login</button>
-                                                    </li>
+                                                        <button className='btn-primary 'onClick={handleLogOUt}>LogOut</button>
+                                                    </li> :
+                                                        <Link to='/login'>
+                                                            <li>
+                                                            <button className='btn-primary '>Login</button>
+                                                        </li>
+                                                        </Link>
                                                 }
 
                                             </ul>

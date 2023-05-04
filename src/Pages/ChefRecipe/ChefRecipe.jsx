@@ -27,7 +27,7 @@ const ChefRecipe = () => {
     return (
         <div>
 
-            <div className=''>
+            <div className='bg-gray-100'>
                 {
                     chefRecipes?.map(recipe => (
                         <div key={recipe.id} className='flex flex-col px-10 gap-5 lg:flex-row my-container lg:justify-between space-y-5 items-center mb-10 '>
@@ -35,6 +35,8 @@ const ChefRecipe = () => {
                                 <h2 className='text-4xl font-bold text-orange-500'>Name : {recipe?.name}</h2>
                                 <p className='text-orange-500'> {recipe?.description}</p>
                                 <p className='text-2xl'>Experience : {recipe?.years_of_experience} Year</p>
+                                <p className='text-2xl'>Number Of Recipes: {recipe?.num_recipes} </p>
+
                                 <div className='flex'> <HandThumbUpIcon className='h-6 w-6 me-4 text-orange-500'></HandThumbUpIcon>{recipe?.likes}</div>
 
                             </div>

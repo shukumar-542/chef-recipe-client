@@ -39,6 +39,7 @@ const route = createBrowserRouter([
     {
         path : 'recipe',
         element : <Main></Main>,
+        errorElement : <ErrorPage></ErrorPage>,
         children :[
             {
                 path : ':id',
