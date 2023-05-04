@@ -11,6 +11,8 @@ const Login = () => {
     const from = location.state?.from?.pathname || '/';
     const navigate = useNavigate()
 
+    // console.log(from);
+
     const handleLogin = (event) =>{
         event.preventDefault();
         const form = event.target;
@@ -84,7 +86,7 @@ const Login = () => {
                  <input type="password" name='password' placeholder="Enter Password" className="input input-bordered w-full" />   
                 </div>
                 <button className='btn-primary w-1/2' type='submit'>Login</button>
-                <p>Don't Have an Account? <Link to="/register" className='text-orange-500 underline'>Register</Link></p>
+                <p>Don't Have an Account? <Link to="/register" state={{from : {pathname : from}}} className='text-orange-500 underline'>Register</Link></p>
             </form>
             <div className='text-center my-2 text-red-500'>
                 {error}

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import {  useParams } from 'react-router-dom';
 import Button from '../Button/Button';
 import Loading from '../Loading/Loading';
 import { Rating } from '@smastrom/react-rating'
@@ -18,12 +18,16 @@ const ChefRecipe = () => {
         fetch(`https://food-mart-server-shukumar-542.vercel.app/recipe/${id}`)
             .then(res => res.json())
             .then(data => setChefRecipes(data))
-        setSpinner(false)
+            setSpinner(false)
     }, [])
 
+    
     if (spinner) {
-        return <Loading></Loading>
+       
+     return <Loading></Loading>
     }
+   
+
     return (
         <div>
 
